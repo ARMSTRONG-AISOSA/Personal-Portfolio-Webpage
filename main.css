@@ -1,0 +1,799 @@
+:root {
+  --green-colour: #3ed625;
+  --sec-colour: #ffffff;
+  --pry-colour: #141414;
+  --ter-colour: #ffffff;
+  --white-colour: #fff;
+  --background-colour: #262626;
+  --background-linear-gradient: linear-gradient(rgba(0, 0, 0, 0.6), #3ed625);
+  --background-shadow: rgba(255, 255, 255, 0.3);
+  --text-shadow: rgba(0, 0, 0, 0.5);
+  --facebook: #3b5999;
+  --twitter: #46c1f6;
+  --instagram: #e1306c;
+  --github: #333;
+  --youtube: red;
+}
+
+.light-theme {
+  --green-colour: #05831f;
+  --sec-colour: #141414;
+  --pry-colour: #ffffff;
+  --ter-colour: #ff004f;
+  --background-colour: #cfcfcf;
+  --background-linear-gradient: linear-gradient(rgba(0, 0, 0, 0.6), #05831f);
+  --background-shadow: rgba(0, 0, 0, 0.3);
+  --text-shadow: rgba(255, 255, 255, 0.5);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* This may not work deppending on the device(laptop) has smooth scrolling enabled, go to chrome://flags/#smooth-scrolling to fix use or use a javascript program or write your own code.*/
+html, body{
+  scroll-behavior: smooth !important;
+}
+
+body {
+  background: var(--pry-colour);
+  color: var(--sec-colour);
+}
+
+#header {
+  width: 100%;
+  height: 100vh;
+  /* height: 800px; */
+  /* height: 100%; */
+  position: relative;
+}
+
+
+
+#header-image {
+  background-image: url(./Assets/Header-Image.png);
+  background-size: cover;
+  position: absolute;
+
+
+  bottom: 0%;
+  right: 0%;
+  width: 500px;
+  z-index: -1;
+  height: 100%;
+}
+
+
+
+/* An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element. */
+
+/* #about{
+  padding-top: 500px;
+} */
+
+.container {
+  padding: 10px 5%;
+}
+
+.nav-class {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 160px;
+}
+
+nav ul {
+  /* display: flex; */
+  flex: 1;
+  text-align: right;
+  margin-right: 50px;
+}
+
+nav ul li {
+  /* To make it horizontally alligned */
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: var(--sec-colour);
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background: var(--green-colour);
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.header-text {
+  margin-top: 15%;
+  font-size: 30px;
+}
+
+.header-text h1 {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.header-text span {
+  color: var(--green-colour);
+}
+
+.typewrite {
+  position: relative;
+  font-size: 40px;
+}
+
+.typewrite::after {
+  content: "";
+  width: 1px;
+  border-right: 5px solid var(--green-colour);
+  height: 100%;
+  margin-left: 0.5rem;
+  animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* ====================== Icon */
+
+#icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+/*  ==============================About */
+
+#about {
+  padding: 80px 0;
+  color: var(--sec-colour);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  /* The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. */
+  flex-wrap: wrap;
+}
+
+.about-col-1 {
+  flex-basis: 35%;
+  /* This makes the width of the column 35%. */
+}
+
+.about-col-1 img {
+  width: 100%;
+  /* border-radius: 15px; */
+}
+
+/* The remaining 5% of space goes between bith column(35% & 60%). */
+.about-col-2 {
+  flex-basis: 60%;
+}
+
+.sub-title {
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--green-colour);
+}
+
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px 0;
+}
+
+.tab-links {
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-links::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: var(--green-colour);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+/* Runs when the active-link is added to any tab-links (JS) */
+.tab-links.active-link::after {
+  width: 100%;
+}
+
+
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+
+.tab-contents ul li span {
+  color: var(--green-colour);
+  font-size: 14px;
+}
+
+.tab-contents {
+  display: none;
+}
+
+/* Written together the target two classes in the same element. */
+/* Runs when active-tab is added to any tab-contents (JS) */
+.tab-contents.active-tab {
+  display: block;
+}
+
+
+
+/* ========================Services===================== */
+#services {
+  padding: 30px 0;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.services-list div {
+  background: var(--background-colour);
+  padding: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 10px;
+  transition: background 0.7s, transform 0.7s;
+}
+
+.services-list div i {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.services-list div h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.services-list div a {
+  text-decoration: none;
+  color: var(--sec-colour);
+  font-size: 12px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.services-list div:hover {
+  background: var(--green-colour);
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+
+/* ========================Portfolio===================== */
+
+#portfolio {
+  padding: 50px 0;
+}
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.work {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.layer {
+  width: 100%;
+  height: 0;
+  border-radius: 10px;
+  background: var(--background-linear-gradient);
+  color: #ffffff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+}
+
+.layer h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.layer a {
+  margin-top: 20px;
+  color: var(--ter-colour);
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 60px;
+  background: var(--pry-colour);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.work:hover .layer {
+  height: 100%;
+}
+
+.btn {
+  display: block;
+  margin: 50px auto 10px;
+  width: fit-content;
+  border: 2px solid var(--green-colour);
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--sec-colour);
+  transition: background 0.5s;
+}
+
+.btn:hover {
+  background: var(--green-colour);
+}
+
+
+
+
+/* ------------------Contact-----------  */
+
+.contact-left {
+  flex-basis: 35%;
+  /* height: 30vh; */
+  /* background-color: #ff004f; */
+}
+
+.contact-left p {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.contact-left p i {
+  color: #3ed625;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.btn2 {
+  display: inline-block;
+  background: var(--green-colour);
+}
+
+.wrap-container {
+  display: grid;
+  /* height: 100%; */
+  width: 100%;
+  margin-top: 75px;
+  margin-left: -10px;
+  place-items: center;
+  /* background-color: #00c3ff; */
+}
+
+.wrapper {
+  display: inline-flex;
+  /* background-color: #d35c18; */
+}
+
+.wrapper .icon {
+  margin: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  /* background-color: rgb(206, 188, 26); */
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  /* background-color: #401ca1; */
+  display: block;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 10px 10px var(--background-shadow);
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span i {
+  font-size: 23px;
+  line-height: 50px;
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip,
+.wrapper .icon:hover span i {
+  color: var(--white-colour);
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+/* The pointer-events property defines whether or not an element reacts to pointer events. */
+
+.wrapper .icon .tooltip {
+  position: absolute;
+  top: 0px;
+  background-color: var(--pry-colour);
+  font-size: 18px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  box-shadow: 0 10px 10px var(--background-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  /* background-color: yellow; */
+  bottom: -8px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.75s cubic-bezier(0.8, -0.55, 0.265, 1.55);
+  /* background: #da11bf; */
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  /* Generates a shadow around the icon */
+  text-shadow: 0px -1px 10px var(--text-shadow);
+}
+
+.wrapper .facebook:hover span,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: var(--facebook);
+}
+
+.wrapper .twitter:hover span,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: var(--twitter);
+}
+
+.wrapper .instagram:hover span,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: var(--instagram);
+}
+
+.wrapper .github:hover span,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: var(--github);
+}
+
+.wrapper .youtube:hover span,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: var(--youtube);
+}
+
+
+
+
+
+/* ----Contact-Right--------------------  */
+.contact-right {
+  flex-basis: 57%;
+  /* background-color: #add813; */
+}
+
+.contact-right form {
+  width: 100%;
+  /* background-color: #2d09ce; */
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: var(--background-colour);
+  padding: 15px;
+  margin: 15px 0;
+  color: var(--sec-colour);
+  border-radius: 6px;
+}
+
+form .btn2 {
+  /* padding: 14px 60px; */
+  /* font-size: 18px; */
+  /* margin-top: 20px; */
+  cursor: pointer;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: var(--background-colour);
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.copyright i {
+  color: var(--green-colour);
+}
+
+#msg{
+  color: var(--instagram);
+  margin-top: -5px;
+  display: block;
+}
+
+
+
+/* --------------------Media Queries------------------ */
+
+/* Common breakpoints are 320px — 480px for mobile devices, 481px — 768px for iPads & tablets, 769px — 1024px for small screens like laptop, 1025px — 1200px for large screens like Desktops, and 1201px and above for extra large screens like TV */
+
+.icon_class {
+  display: none;
+}
+
+
+
+/* Text Responsiveness */
+
+/*  */
+@media only screen and (max-width: 1024px) {
+  #header {
+    width: 100%;
+    height: 100vh;
+    /* height: 800px; */
+    /* height: 100%; */
+    position: relative;
+  }
+
+
+
+  #header-image {
+    background-image: url(./Assets/Header-Image.png);
+    background-size: cover;
+    position: absolute;
+
+
+    bottom: 0%;
+    right: 0%;
+    width: 500px;
+    z-index: -1;
+    height: 100%;
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+
+  nav ul {
+    margin-right: 45px;
+  }
+
+  nav ul li {
+    margin: 10px 18px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+
+
+}
+
+
+
+/* Tablet */
+@media only screen and (max-width: 768px) {
+  .icon_class {
+    display: block;
+  }
+
+
+  nav ul {
+    background: var(--green-colour);
+    /* opacity: 0.7; */
+    position: fixed;
+    top: 0;
+    right: -245px;
+    /* right: -45px; */
+    width: 200px;
+    height: 100vh;
+    padding: 50px;
+    z-index: 3;
+    transition: right 0.7s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 25px;
+  }
+
+  .icon_class {
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .icon_class_open {
+    position: absolute;
+    right: 90px;
+  }
+
+  nav ul .icon_class {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  #header {
+    height: 600px;
+  }
+
+  #header-image {
+    width: 450px;
+    height: 100%;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .header-text {
+    margin-top: 60%;
+    font-size: 25px;
+  }
+
+  .header-text h1 {
+    font-size: 35px;
+    margin-top: 20px;
+  }
+
+  .typewrite {
+    position: relative;
+    font-size: 30px;
+  }
+
+  /* ============= About */
+  .sub-title {
+    font-size: 40px;
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+  }
+
+  .about-col-2 {
+    font-size: 14px;
+  }
+
+  .tab-links {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 30px;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex-basis: 100%;
+  }
+
+  .copyright {
+    /* font-size: 14px; */
+  }
+
+}
+
+
+
+/* Mobile */
+@media only screen and (max-width: 480px) {
+  #header {
+    height: 600px;
+  }
+
+  #header-image {
+    width: 70%;
+    height: 100%;
+  }
+
+
+  .logo {
+    width: 80px;
+  }
+
+  .header-text {
+    margin-top: 75%;
+    font-size: 20px;
+  }
+
+  .header-text h1 {
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  .typewrite {
+    position: relative;
+    font-size: 30px;
+  }
+}
